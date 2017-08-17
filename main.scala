@@ -22,7 +22,7 @@ object HoneyPotApp{
 
      // read the session json file from hdfs
      //  since we are reading from an app executed as root, we will read from that directory
-     val rawDF = spark.read.format("json").json("hdfs:/user/root/small_session.json")
+     val rawDF = spark.read.format("json").json("hdfs:/user/root/session.json")
 
      // flatten the fields from the original layered output format - and then rename the fields  
      //   to get rid of the dollar-signs in the field names
