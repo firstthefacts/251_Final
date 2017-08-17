@@ -31,6 +31,12 @@ object HoneyPotApp{
 
      val renamedFlatDF =  flatDF.toDF("oid","destination_port","honeypot","hpfeed_oid","identifier","protocol","source_ip","source_port","date")
 
+     renamedFlatDF.groupBy("honeypot").count().orderBy($"count".desc).show()
+     renamedFlatDF.groupBy("destination_port").count().orderBy($"count".desc).show()
+     renamedFlatDF.groupBy("protocol").count().orderBy($"count".desc).show()
+     renamedFlatDF.groupBy("identifier").count().orderBy($"count".desc).show()
+     renamedFlatDF.groupBy("source_ip").count().orderBy($"count".desc).show()
+
      renamedFlatDF.take(10).foreach(println)
  
      renamedFlatDF.coalesce(1).write.mode("append").format("json").save("hdfs:/user/root/honey4_out.json")
