@@ -62,15 +62,15 @@ print("Within China, Atacks are Coming From These Cities")
 jsonDF.filter("country_code = 'CN'").groupBy("city").count().sort(col("count").desc()).show()
 #
 #  Within Russia, where are the attacks coming from?
-print("Within Russia, Atacks are Coming From These Cities")
+print("Within Russia, Attacks are Coming From These Cities")
 jsonDF.filter("country_code = 'RU'").groupBy("city").count().sort(col("count").desc()).show()
 #
 # Which ports are being attacked?
-print("These Ports Are Being Attcked The Most")
+print("These Ports Are Being Attacked The Most")
 jsonDF.groupBy("destination_port").count().sort(col("count").desc()).show()
 #
 # Which IPs generate the most attacks?
-print("The Greatest Number of Attacks are Coming from These IP Addresses")
+print("The Greatest Number of Attacks is from These IP Addresses")
 jsonDF.groupBy("source_ip").count().sort(col("count").desc()).show()
 #
 # What protocol is used most often in an attack?
